@@ -1,4 +1,30 @@
 <resources>
     <string name="app_name">HungryHelper</string>
     <string name="title_activity_display_recipe">DisplayRecipeActivity</string>
+
+    <string-array name="proteinChoices">
+        <item></item>
+        <item>Chicken</item>
+        <item>Beef</item>
+        <item>Pork</item>
+        <item>Fish</item>
+        <item>Tofu</item>
+    </string-array>
+
+    <string-array name="vegetableChoices">
+        <item></item>
+        <item>Brocoli</item>
+        <item>Lettuce</item>
+        <item>Spinach</item>
+        <item>Onions</item>
+        <item>Potatoes</item>
+        <item>Zuccini</item>
+    </string-array>
+
+    <string-array name="carbChoices">
+        <item></item>
+        <item>Pasta</item>
+        <item>Rice</item>
+        <item>Noodles</item>
+    </string-array>
 </resources>
