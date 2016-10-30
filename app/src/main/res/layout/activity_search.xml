@@ -111,7 +111,8 @@
             android:id="@+id/searchButton"
             android:layout_alignTop="@+id/resetButton"
             android:layout_toRightOf="@+id/carbSpinner"
-            android:layout_toEndOf="@+id/carbSpinner"/>
+            android:layout_toEndOf="@+id/carbSpinner"
+            android:onClick="searchMatches"/>
 
         <Button
             android:layout_width="wrap_content" android:layout_height="wrap_content"
