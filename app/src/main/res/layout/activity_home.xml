@@ -10,16 +10,7 @@
     tools:context="project.comp3717.hungryhelper.HomeActivity">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Favourites"
-        android:id="@+id/favouritesButton"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="favouritesScreen"/>
-
-    <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Catalog"
         android:id="@+id/catalogButton"
@@ -29,7 +20,7 @@
         android:onClick="catalogScreen"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Search"
         android:id="@+id/searchButton"
@@ -38,4 +29,13 @@
         android:layout_alignLeft="@+id/catalogButton"
         android:layout_alignStart="@+id/catalogButton"
         android:onClick="searchScreen"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Favourites"
+        android:id="@+id/favouritesButton"
+        android:onClick="favouritesScreen"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
