@@ -65,8 +65,9 @@ public class MatchesActivity extends AppCompatActivity {
     }
 
     public void detail(int position) {
-        int im = 0;
-        String _id = "";String nama = "";
+        int imamage = 0;
+        String _id = "";
+        String nama = "";
         String bahan = "";
         String cara = "";
         if (cursor.moveToFirst()) {
