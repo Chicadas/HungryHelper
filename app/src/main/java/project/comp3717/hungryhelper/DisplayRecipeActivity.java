@@ -21,8 +21,18 @@ public class DisplayRecipeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_recipe);
-        String recipeName = "Bobs Awesome Lasagna";
+        String recipeName = "Filet Mignon with Balsamic Glaze";
         setTitle(recipeName);
+        /**
+         * get name
+
+        MyDBHandler myDBname = new MyDBHandler(this, null, null, 1);
+        ArrayList<String> name = myDBname.getName();
+        String str = name.get(0);
+        setTitle(str);
+        String recipeName = str;
+        myDBname.close();
+         */
         /**
          * Handling ingredients
          */
