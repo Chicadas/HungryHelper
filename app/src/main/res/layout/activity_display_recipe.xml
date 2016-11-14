@@ -17,6 +17,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:id="@+id/recipeImage"
+        android:layout_marginBottom="20dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -48,8 +49,8 @@
         android:layout_alignParentStart="true"
         android:text="something"
         android:textColor="@color/white"
-        android:textSize="25sp"
-        android:lineSpacingExtra="7dp"/>
+        android:textSize="22sp"
+        android:lineSpacingExtra="5dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,8 +63,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColor="@color/white"
-        android:textSize="25sp"
-        android:lineSpacingExtra="7dp"/>
+        android:textSize="22sp"
+        android:lineSpacingExtra="5dp"/>
 
     <TextView
         android:layout_width="wrap_content"
