@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,28 +8,34 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/gray"
     tools:context="project.comp3717.hungryhelper.HomeActivity">
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Catalog"
-        android:id="@+id/catalogButton"
-        android:layout_below="@+id/favouritesButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
-        android:onClick="catalogScreen"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Search"
         android:id="@+id/searchButton"
-        android:layout_marginTop="36dp"
-        android:layout_below="@+id/catalogButton"
-        android:layout_alignLeft="@+id/catalogButton"
-        android:layout_alignStart="@+id/catalogButton"
-        android:onClick="searchScreen"/>
+        android:onClick="searchScreen"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Catalog"
+        android:id="@+id/catalogButton"
+        android:onClick="catalogScreen"
+        android:layout_marginBottom="50dp"
+        android:layout_above="@+id/searchButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"/>
 
     <Button
         android:layout_width="match_parent"
@@ -36,7 +43,21 @@
         android:text="Favourites"
         android:id="@+id/favouritesButton"
         android:onClick="favouritesScreen"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginBottom="50dp"
+        android:layout_above="@+id/catalogButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/hungryhelper"
+        android:id="@+id/imageView3"
+        android:layout_above="@+id/favouritesButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="39dp" />
 
 </RelativeLayout>

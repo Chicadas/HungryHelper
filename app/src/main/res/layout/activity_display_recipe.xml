@@ -10,6 +10,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/gray"
     tools:context="project.comp3717.hungryhelper.DisplayRecipeActivity">
 
     <ImageView
@@ -27,11 +28,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Ingredients :"
+        android:text="Ingredients:"
         android:id="@+id/textView7"
         android:layout_below="@+id/recipeImage"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="@color/orange"
+        android:textSize="35sp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,10 +42,14 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/ingredients"
         android:singleLine="false"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/textView7"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="something" />
+        android:text="something"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:lineSpacingExtra="7dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,20 +57,24 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/instructions"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/textView9"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:lineSpacingExtra="7dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Instructions"
+        android:text="Instructions:"
         android:id="@+id/textView9"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/ingredients"
-        android:layout_alignRight="@+id/textView7"
-        android:layout_alignEnd="@+id/textView7" />
+        android:textColor="@color/orange"
+        android:textSize="35sp"/>
 
 </RelativeLayout>
 </ScrollView>

@@ -28,17 +28,17 @@ public class HomeActivity extends AppCompatActivity {
         search = (Button) findViewById(R.id.searchButton);
         search.setBackgroundColor(Color.argb(255,255,165,0));
         search.setTextColor(WHITE);
-        search.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        search.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
 
         faves = (Button) findViewById(R.id.favouritesButton);
         faves.setBackgroundColor(Color.argb(255,255,165,0));
         faves.setTextColor(WHITE);
-        faves.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        faves.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
 
         catalog = (Button) findViewById(R.id.catalogButton);
         catalog.setBackgroundColor(Color.argb(255,255,165,0));
         catalog.setTextColor(WHITE);
-        catalog.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        catalog.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
     }
 
     public void searchScreen(View view){

@@ -2,8 +2,12 @@
     <string name="app_name">HungryHelper</string>
     <string name="title_activity_display_recipe">DisplayRecipeActivity</string>
 
+    <color name="gray">#3d3d3d</color>
+    <color name="white">#ffffff</color>
+    <color name="orange">#FFA500</color>
+
     <string-array name="proteinChoices">
-        <item></item>
+        <item>Choose...</item>
         <item>Chicken</item>
         <item>Beef</item>
         <item>Pork</item>
@@ -12,7 +16,7 @@
     </string-array>
 
     <string-array name="vegetableChoices">
-        <item></item>
+        <item>Choose...</item>
         <item>Brocoli</item>
         <item>Lettuce</item>
         <item>Spinach</item>
@@ -22,7 +26,7 @@
     </string-array>
 
     <string-array name="carbChoices">
-        <item></item>
+        <item>Choose...</item>
         <item>Pasta</item>
         <item>Rice</item>
         <item>Noodles</item>

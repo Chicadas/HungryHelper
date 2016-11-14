@@ -21,6 +21,7 @@ public class SearchActivity extends AppCompatActivity {
     TextView t2;
     TextView t3;
     TextView t4;
+    Spinner carbs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,25 +34,29 @@ public class SearchActivity extends AppCompatActivity {
         search = (Button) findViewById(R.id.searchButton);
         search.setBackgroundColor(Color.argb(255,255,165,0));
         search.setTextColor(WHITE);
-        search.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+        search.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
 
         reset = (Button) findViewById(R.id.resetButton);
         reset.setBackgroundColor(Color.argb(255,255,165,0));
         reset.setTextColor(WHITE);
-        reset.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+        reset.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
 
         t1 = (TextView) findViewById(R.id.textView);
-        t1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-        t1.setTextColor(Color.argb(255,255,165,0));
+        t1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+        t1.setTextColor(Color.argb(255,255,255,255));
         t2 = (TextView) findViewById(R.id.textView2);
-        t2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-        t2.setTextColor(Color.argb(255,255,165,0));
+        t2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+        t2.setTextColor(Color.argb(255,255,255,255));
         t3 = (TextView) findViewById(R.id.textView3);
-        t3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-        t3.setTextColor(Color.argb(255,255,165,0));
+        t3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+        t3.setTextColor(Color.argb(255,255,255,255));
         t4 = (TextView) findViewById(R.id.textView4);
-        t4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-        t4.setTextColor(Color.argb(255,255,165,0));
+        t4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+        t4.setTextColor(Color.argb(255,255,255,255));
+
+        searchBar.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+        t4.setTextColor(Color.argb(255,255,255,255));
+
     }
 
     public void resetField(View V){
