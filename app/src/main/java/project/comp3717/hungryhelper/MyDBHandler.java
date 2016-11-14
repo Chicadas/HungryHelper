@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by shanejackson on 2016-11-06.
@@ -57,6 +58,25 @@ public class MyDBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    /*public ArrayList<String> getAllRecipes(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlStatement = "SELECT * FROM " + TABLE_RECIPES;
+        Cursor c = db.rawQuery(sqlStatement, null);
+
+        ArrayList<String> list = new ArrayList<String>();
+        HashMap<String, Integer> map = new HashMap<>();
+        c.moveToFirst();
+        while(c.isAfterLast() == false) {
+            map.put();
+            list.add(c.getString(2));
+            Log.d("TRYING TO CREATE", c.getString(2));
+            c.moveToNext();
+        }
+        c.close();
+        db.close();
+        return list;
+    }*/
+
     /**
      * Returns an ingredient list for a given recipe.
      * @param recipeName
@@ -79,6 +99,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.close();
         return list;
     }
+
     /**
      * Returns an instruction set for a given recipe.
      * @param recipeName

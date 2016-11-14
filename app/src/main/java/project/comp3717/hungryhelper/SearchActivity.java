@@ -53,11 +53,13 @@ public class SearchActivity extends AppCompatActivity {
         t4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
         t4.setTextColor(Color.argb(255,255,165,0));
     }
+
     public void resetField(View V){
         searchBar.setText("");
     }
+
     public void searchMatches(View view){
-        Intent intent = new Intent(this, DisplayRecipeActivity.class);
+        Intent intent = new Intent(this, MatchesActivity.class);
         final Spinner proteinSpinner = (Spinner)findViewById(R.id.proteinSpinner);
         final Spinner vegetableSpinner = (Spinner)findViewById(R.id.vegetableSpinner);
         final Spinner carbSpinner = (Spinner)findViewById(R.id.carbSpinner);
