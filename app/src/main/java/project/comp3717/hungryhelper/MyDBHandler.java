@@ -43,7 +43,12 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 + ")";
         db.execSQL(CREATE_PRODUCTS_TABLE);
 
-        db.execSQL("INSERT INTO " + TABLE_RECIPES + "(NAME, INGREDIENTS, INTSTRUCTIONS, IMAGE) VALUES ('Lasagna', 'Beef and Noodles what else', 'Make it bitch'," + R.drawable.lasanga + ")");
+        db.execSQL("INSERT INTO " + TABLE_RECIPES + "(NAME, INGREDIENTS, INTSTRUCTIONS, IMAGE) VALUES " +
+                                                                                                        "('Bobs Awesome Lasagna', " +
+                                                                                                        "' 8 ounces lasagna noodles \n 1 pound ground beef \n 1/4 cup minced onions \n 1 teaspoon salt \n 1/2 teaspoon garlic salt  \n 1 (32 ounce) jar spaghetti sauce \n 1 (16 ounce) package large curd cottage cheese \n 1 pound mozzarella cheese, shredded', " +
+                                                                                                        "'1.) Bring a large pot of lightly salted water to a boil. Cook noodles in boiling water for 8 to 10 minutes, or until al dente; drain. \n 2.) In a large skillet over medium heat, saute ground beef, onions, salt and garlic salt until meat is brown. Drain excess fat, add spaghetti sauce to beef mixture, and bring to a boil. Reduce heat, and simmer for 15 to 20 minutes. \n 3.) Preheat oven to 350 degrees F (175 degrees C). Grease a 9x13 inch glass baking pan. \n 4.) Line bottom of pan with three lasagna noodles. Spread 1/3 of sauce mixture over noodles. Layer 1/3 of the cottage cheese over the sauce. Sprinkle 1/3 of the mozzarella over the cottage cheese. Repeat this layering process until all ingredients are used up. \n 5.) Bake in the preheated oven for one hour. Let stand for 10 minutes before serving. '," +
+                                                                                                        R.drawable.lasanga +
+                                                                                                        ")");
     }
     @Override
     public void onUpgrade (SQLiteDatabase db,int oldVersion,
