@@ -61,17 +61,16 @@ public class MatchesActivity extends AppCompatActivity {
     }
 
     public void detail(int position) {
-//        int im = 0;
-//        String _id = "";
-//        String nama = "";
-//        String bahan = "";
-//        String cara = "";
-//        if (cursor.moveToFirst()) {
-//            cursor.moveToPosition(position);
-//            im = cursor.getInt(cursor.getColumnIndex("img"));
-//            nama = cursor.getString(cursor.getColumnIndex("nama"));
-//            bahan = cursor.getString(cursor.getColumnIndex("bahan"));
-//            cara = cursor.getString(cursor.getColumnIndex("cara"));
+        int im = 0;
+        String _id = "";String nama = "";
+        String bahan = "";
+        String cara = "";
+        if (cursor.moveToFirst()) {
+              cursor.moveToPosition(position);
+              image = cursor.getInt(cursor.getColumnIndex("img"));
+              nama = cursor.getString(cursor.getColumnIndex("nama"));
+              bahan = cursor.getString(cursor.getColumnIndex("bahan"));
+              cara = cursor.getString(cursor.getColumnIndex("cara"));
 //        }
 
         Intent iIntent = new Intent(this, DisplayRecipeActivity.class);
