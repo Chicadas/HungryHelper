@@ -65,25 +65,25 @@ public class MatchesActivity extends AppCompatActivity {
     }
 
     public void detail(int position) {
-        int imamage = 0;
+        int image = 0;
         String _id = "";
-        String nama = "";
-        String bahan = "";
-        String cara = "";
+        String name = "";
+        String ingredients = "";
+        String instructions = "";
         if (cursor.moveToFirst()) {
               cursor.moveToPosition(position);
-              image = cursor.getInt(cursor.getColumnIndex("img"));
-              nama = cursor.getString(cursor.getColumnIndex("nama"));
-              bahan = cursor.getString(cursor.getColumnIndex("bahan"));
-              cara = cursor.getString(cursor.getColumnIndex("cara"));
-//        }
+              image = cursor.getInt(cursor.getColumnIndex("IMAGE"));
+              name = cursor.getString(cursor.getColumnIndex("NAME"));
+              ingredients = cursor.getString(cursor.getColumnIndex("INGREDIENTS"));
+              instructions = cursor.getString(cursor.getColumnIndex("INSTRUCTIONS"));
+       }
 
         Intent iIntent = new Intent(this, DisplayRecipeActivity.class);
-//        iIntent.putExtra("dataIM", im);
-//        iIntent.putExtra("dataNama", nama);
-//        iIntent.putExtra("dataBahan", bahan);
-//        iIntent.putExtra("dataCara", cara);
-//        setResult(RESULT_OK, iIntent);
+           iIntent.putExtra("recipeImage", image);
+           iIntent.putExtra("recipeName", name);
+           iIntent.putExtra("recipeIngredients", ingredients);
+           iIntent.putExtra("recipeInstructions", instructions);
+           setResult(RESULT_OK, iIntent);
         startActivityForResult(iIntent, 99);
     }
 

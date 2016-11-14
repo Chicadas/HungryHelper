@@ -17,50 +17,51 @@ import java.util.ArrayList;
 
 public class DisplayRecipeActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_recipe);
-        String recipeName = "Filet Mignon with Balsamic Glaze";
-        setTitle(recipeName);
-        /**
-         * get name
+        int myImage = 0;
+        String myName = "";
+        String myInstructions = "";
+        String myIngredients = "";
+        Bundle b = this.getIntent().getExtras();
 
-        MyDBHandler myDBname = new MyDBHandler(this, null, null, 1);
-        ArrayList<String> name = myDBname.getName();
-        String str = name.get(0);
-        setTitle(str);
-        String recipeName = str;
-        myDBname.close();
-         */
-        /**
-         * Handling ingredients
-         */
-        MyDBHandler myDBingredients = new MyDBHandler(this, null, null, 1);
-        ArrayList<String> ingredients =  myDBingredients.displayIngredients(recipeName);
+        myName = b.getString("recipeName");
+        myIngredients = b.getString("recipeIngredients");
+        myInstructions = b.getString("recipeInstructions");
+        myImage = b.getInt("recipeImage");
+
+
+        setTitle(myName);
+
+        //MyDBHandler myDBingredients = new MyDBHandler(this, null, null, 1);
+        //ArrayList<String> ingredients =  myDBingredients.displayIngredients(myName);
         TextView ingredientText = (TextView)findViewById(R.id.ingredients);
-        String val = ingredients.get(0);
-        ingredientText.setText(val);
-        myDBingredients.close();
+        //String val = ingredients.get(0);
+        ingredientText.setText(myIngredients);
+       // myDBingredients.close();
         /**
          * Handling instructions
          */
-        MyDBHandler myDBinstructions = new MyDBHandler(this, null, null, 1);
-        ArrayList<String> instructions =  myDBinstructions.displayInstructions(recipeName);
+       // MyDBHandler myDBinstructions = new MyDBHandler(this, null, null, 1);
+       // ArrayList<String> instructions =  myDBinstructions.displayInstructions(myName);
         TextView instructionText = (TextView)findViewById(R.id.instructions);
-        String val2 = instructions.get(0);
-        instructionText.setText(val2);
-        myDBinstructions.close();
+        //String val2 = instructions.get(0);
+        instructionText.setText(myInstructions);
+        //myDBinstructions.close();
         /**
          * Handling images
          */
         // android:src ="@drawable/lasanga"
-        MyDBHandler myDBimages = new MyDBHandler(this, null, null, 1);
-        ArrayList<Integer> images =  myDBimages.displayImage(recipeName);
+        //MyDBHandler myDBimages = new MyDBHandler(this, null, null, 1);
+        //ArrayList<Integer> images =  myDBimages.displayImage(myName);
         ImageView imageView = (ImageView)findViewById(R.id.recipeImage);
-        int val3 = images.get(0);
-        imageView.setImageResource(val3);
-        myDBimages.close();
+        //int val3 = images.get(0);
+        imageView.setImageResource(myImage);
+        //myDBimages.close();
 
 
 
