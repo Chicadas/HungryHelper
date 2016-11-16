@@ -21,6 +21,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "Hungry.db";
     private static final String TABLE_RECIPES = "Recipes";
+    private static final String TABLE_FAVOURITES = "Favourites";
 
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_RECIPE_NAME = "NAME";
@@ -28,13 +29,33 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_RECIPE_INSTRUCTIONS = "INSTRUCTIONS";
     public static final String COLUMN_RECIPE_IMAGE = "IMAGE";
 
+
+
+
+
+
     public MyDBHandler(Context context, String name,
                        SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
+
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_PRODUCTS_TABLE = "CREATE TABLE " +
+
+        ////////// FAVOURITES //////////////
+        String CREATE_FAVOURITES_TABLE = "CREATE TABLE " +
+                TABLE_FAVOURITES + " ("
+                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COLUMN_RECIPE_NAME + " TEXT NOT NULL, "
+                + COLUMN_RECIPE_INGREDIENTS + "  TEXT NOT NULL, "
+                + COLUMN_RECIPE_INSTRUCTIONS + " TEXT NOT NULL, "
+                + COLUMN_RECIPE_IMAGE + " INTEGER "
+                + ")";
+        db.execSQL(CREATE_FAVOURITES_TABLE);
+
+        ////////// RECIPES //////////////
+        String CREATE_RECIPE_TABLE = "CREATE TABLE " +
                 TABLE_RECIPES + " ("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COLUMN_RECIPE_NAME + " TEXT NOT NULL, "
@@ -42,7 +63,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 + COLUMN_RECIPE_INSTRUCTIONS + " TEXT NOT NULL, "
                 + COLUMN_RECIPE_IMAGE + " INTEGER "
                 + ")";
-        db.execSQL(CREATE_PRODUCTS_TABLE);
+        db.execSQL(CREATE_RECIPE_TABLE);
 
         db.execSQL("INSERT INTO " + TABLE_RECIPES + "(NAME, INGREDIENTS, INSTRUCTIONS, IMAGE) VALUES " +
                                                                                                         "('Bobs Awesome Lasagna', " +
@@ -163,6 +184,19 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.close();
         return list;
     }*/
+    /**
+    public void AddFavourite(String recipe[]){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Select distinct
+        String sqlStatement = "INSERT INTO " + TABLE_FAVOURITES +
+                "( "+ COLUMN_RECIPE_NAME + ", " + COLUMN_RECIPE_INGREDIENTS + ", "+
+                COLUMN_RECIPE_INSTRUCTIONS + ", " + COLUMN_RECIPE_IMAGE + ")" + " VALUES ( "+
+                recipe[0] + ", " + recipe[1] + ", " + recipe[2] + ", " + recipe[3] + ")";
+
+        db.execSQL(sqlStatement);
+    }
+     */
 
     /**
      *

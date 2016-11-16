@@ -1,5 +1,6 @@
 package project.comp3717.hungryhelper;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,10 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MatchesActivity extends AppCompatActivity {
     protected ListView lv;
@@ -51,30 +54,39 @@ public class MatchesActivity extends AppCompatActivity {
 
               Log.d("From spinner: ",words[i]);
         }
-        db = (new MyDBHandler(this, null, null, 1)).getWritableDatabase();
-        lv = (ListView) findViewById(R.id.list);
-        //et_db = (EditText) findViewById(R.id.et);
+        if(words.length != 0) {
+            db = (new MyDBHandler(this, null, null, 1)).getWritableDatabase();
+            lv = (ListView) findViewById(R.id.list);
+            //et_db = (EditText) findViewById(R.id.et);
 
-        try {
-            cursor = db.rawQuery("SELECT * FROM Recipes", null);
-            adapter = new SimpleCursorAdapter(this, R.layout.custom_listview, cursor,
-                    new String[] { "NAME", "IMAGE"}, new int[] {
-                    R.id.recipeTitle, R.id.imageView});
-            lv.setAdapter(adapter);
-            lv.setTextFilterEnabled(true);
-            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            try {
+                cursor = db.rawQuery("SELECT * FROM Recipes WHERE INGREDIENTS LIKE \'%Chicken%\'"  , null);
+                Log.d("count : ", "" + cursor.getCount());
+                adapter = new SimpleCursorAdapter(this, R.layout.custom_listview, cursor,
+                        new String[] { "NAME", "IMAGE"}, new int[] {
+                        R.id.recipeTitle, R.id.imageView});
+                lv.setAdapter(adapter);
+                lv.setTextFilterEnabled(true);
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-                @Override
-                public void onItemClick(AdapterView<?> parent, View v,
-                                        int position, long id) {
-                    detail(position);
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View v,
+                                            int position, long id) {
+                        detail(position);
 
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            styleList();
+
+        } else {
+            String fail = " You failed to enter any delicious ingredients ";
+            Toast.makeText(this, fail, Toast.LENGTH_LONG).show();
+
         }
-        styleList();
+
 
     }
     public void styleList(){
