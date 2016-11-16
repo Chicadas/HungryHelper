@@ -8,27 +8,27 @@
 
     <string-array name="proteinChoices">
         <item>Choose...</item>
-        <item>Chicken</item>
-        <item>Beef</item>
-        <item>Pork</item>
-        <item>Fish</item>
-        <item>Tofu</item>
+        <item>chicken</item>
+        <item>beef</item>
+        <item>pork</item>
+        <item>fish</item>
+        <item>tofu</item>
     </string-array>
 
     <string-array name="vegetableChoices">
         <item>Choose...</item>
-        <item>Brocoli</item>
-        <item>Lettuce</item>
-        <item>Spinach</item>
-        <item>Onions</item>
-        <item>Potatoes</item>
-        <item>Zuccini</item>
+        <item>brocoli</item>
+        <item>lettuce</item>
+        <item>spinach</item>
+        <item>onions</item>
+        <item>zuccini</item>
     </string-array>
 
     <string-array name="carbChoices">
         <item>Choose...</item>
-        <item>Pasta</item>
-        <item>Rice</item>
-        <item>Noodles</item>
+        <item>pasta</item>
+        <item>rice</item>
+        <item>noodles</item>
+        <item>potatoes</item>
     </string-array>
 </resources>

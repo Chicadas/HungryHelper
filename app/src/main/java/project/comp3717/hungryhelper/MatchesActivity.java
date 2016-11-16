@@ -40,13 +40,13 @@ public class MatchesActivity extends AppCompatActivity {
 
         switch(length){
             case 1:
-                searchFor += words[0];
+                searchFor += "\'%" + words[0] + "%\'";
                 break;
             case 2:
-                searchFor += words[0] + " OR " + words[1];
+                searchFor += "\'%" + words[0]+ "%\'" + " OR INGREDIENTS LIKE " + "\'%" + words[1]+ "%\'";
                 break;
             case 3:
-                searchFor += words[0] + " OR " + words[1] + " OR " + words[2];
+                searchFor += "\'%" + words[0] + "%\'" + " OR INGREDIENTS LIKE " + "\'%"+ words[1] + "%\'"+ " OR  INGREDIENTS LIKE " + "\'%" +words[2] + "%\'";
                 break;
         }
 
@@ -60,7 +60,7 @@ public class MatchesActivity extends AppCompatActivity {
             //et_db = (EditText) findViewById(R.id.et);
 
             try {
-                cursor = db.rawQuery("SELECT * FROM Recipes WHERE INGREDIENTS LIKE \'%Chicken%\'"  , null);
+                cursor = db.rawQuery("SELECT * FROM Recipes WHERE( INGREDIENTS LIKE" + searchFor + ")", null);
                 Log.d("count : ", "" + cursor.getCount());
                 adapter = new SimpleCursorAdapter(this, R.layout.custom_listview, cursor,
                         new String[] { "NAME", "IMAGE"}, new int[] {
