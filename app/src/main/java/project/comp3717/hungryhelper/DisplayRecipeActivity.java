@@ -37,31 +37,15 @@ public class DisplayRecipeActivity extends AppCompatActivity {
 
         setTitle(myName);
 
-        //MyDBHandler myDBingredients = new MyDBHandler(this, null, null, 1);
-        //ArrayList<String> ingredients =  myDBingredients.displayIngredients(myName);
+
         TextView ingredientText = (TextView)findViewById(R.id.ingredients);
-        //String val = ingredients.get(0);
         ingredientText.setText(myIngredients);
-       // myDBingredients.close();
-        /**
-         * Handling instructions
-         */
-       // MyDBHandler myDBinstructions = new MyDBHandler(this, null, null, 1);
-       // ArrayList<String> instructions =  myDBinstructions.displayInstructions(myName);
+
         TextView instructionText = (TextView)findViewById(R.id.instructions);
-        //String val2 = instructions.get(0);
         instructionText.setText(myInstructions);
-        //myDBinstructions.close();
-        /**
-         * Handling images
-         */
-        // android:src ="@drawable/lasanga"
-        //MyDBHandler myDBimages = new MyDBHandler(this, null, null, 1);
-        //ArrayList<Integer> images =  myDBimages.displayImage(myName);
+
         ImageView imageView = (ImageView)findViewById(R.id.recipeImage);
-        //int val3 = images.get(0);
         imageView.setImageResource(myImage);
-        //myDBimages.close();
 
 
 

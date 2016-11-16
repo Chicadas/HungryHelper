@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 public class MatchesActivity extends AppCompatActivity {
     protected ListView lv;
@@ -26,13 +27,30 @@ public class MatchesActivity extends AppCompatActivity {
 
 
 
-//        Bundle b = this.getIntent().getExtras();
-//        String[] words = b.getStringArray("key");
-//        TextView text = (TextView)findViewById(R.id.textView6);
-//        for(int i = 0; i < words.length; i++){
-//            text.setText(words[i]);
-//            Log.d("From spinner: ",words[i]);
-//        }
+          Bundle b = this.getIntent().getExtras();
+          String[] words = b.getStringArray("key");
+          int  length = words.length;
+          String searchFor = "";
+          String protein = "";
+          String vegetable = "";
+          String carb = "";
+
+        switch(length){
+            case 1:
+                searchFor += words[0];
+                break;
+            case 2:
+                searchFor += words[0] + " OR " + words[1];
+                break;
+            case 3:
+                searchFor += words[0] + " OR " + words[1] + " OR " + words[2];
+                break;
+        }
+
+          for(int i = 0; i < words.length; i++){
+
+              Log.d("From spinner: ",words[i]);
+        }
         db = (new MyDBHandler(this, null, null, 1)).getWritableDatabase();
         lv = (ListView) findViewById(R.id.list);
         //et_db = (EditText) findViewById(R.id.et);

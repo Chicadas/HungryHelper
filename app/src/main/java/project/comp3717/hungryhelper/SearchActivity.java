@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import static android.graphics.Color.WHITE;
 
 public class SearchActivity extends AppCompatActivity {
@@ -72,9 +74,26 @@ public class SearchActivity extends AppCompatActivity {
         String vegetable = String.valueOf(vegetableSpinner.getSelectedItem());
         String carb = String.valueOf(carbSpinner.getSelectedItem());
 
+        ArrayList<String> inputs = new ArrayList<>();
+        if(protein.compareTo("Choose...") != 0){
+            inputs.add(protein);
+        }
+        if(vegetable.compareTo("Choose...") != 0){
+            inputs.add(vegetable);
+        }
+        if(carb.compareTo("Choose...") != 0){
+            inputs.add(carb);
+        }
+
+        String newInputs[] = new String[inputs.size()];
+        for(int i = 0; i < inputs.size(); i++){
+            newInputs[i] = inputs.get(i);
+        }
+
         Bundle b = new Bundle();
-        b.putStringArray("key", new String[]{protein, vegetable, carb});
+        b.putStringArray("key", newInputs);
         intent.putExtras(b);
         startActivity(intent);
+
     }
 }
