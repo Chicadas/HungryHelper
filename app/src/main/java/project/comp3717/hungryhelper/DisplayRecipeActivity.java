@@ -17,16 +17,19 @@ import java.util.ArrayList;
 
 public class DisplayRecipeActivity extends AppCompatActivity {
 
-
+    private String myName;
+    private String myInstructions;
+    private String myIngredients;
+    private int myImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_recipe);
-        int myImage = 0;
-        String myName = "";
-        String myInstructions = "";
-        String myIngredients = "";
+        myImage = 0;
+        myName = "";
+        myInstructions = "";
+        myIngredients = "";
         Bundle b = this.getIntent().getExtras();
 
         myName = b.getString("recipeName");
@@ -47,9 +50,12 @@ public class DisplayRecipeActivity extends AppCompatActivity {
         ImageView imageView = (ImageView)findViewById(R.id.recipeImage);
         imageView.setImageResource(myImage);
 
-
-
     }
 
+    public void favourite(View view){
+        MyDBHandler db = (new MyDBHandler(this, null, null, 1));
+        db.AddFavourite(myName, myInstructions, myIngredients, myImage);
+        db.close();
+    }
 
 }

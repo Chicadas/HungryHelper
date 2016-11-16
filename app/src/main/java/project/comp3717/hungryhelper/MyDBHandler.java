@@ -198,6 +198,21 @@ public class MyDBHandler extends SQLiteOpenHelper {
     }
      */
 
+    public void AddFavourite(String name, String ingredients, String instructions, int image){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Select distinct
+        String sqlStatement = "INSERT INTO " + TABLE_FAVOURITES +
+                "( "+ COLUMN_RECIPE_NAME + ", " + COLUMN_RECIPE_INGREDIENTS + ", "+
+                COLUMN_RECIPE_INSTRUCTIONS + ", " + COLUMN_RECIPE_IMAGE + ")" + " VALUES ( "+
+                name + ", " + ingredients + ", " + instructions + ", " + image + ")";
+
+        db.execSQL(sqlStatement);
+    }
+
+
+
+
     /**
      *
      * @return a recipe name
