@@ -38,6 +38,10 @@ public class DisplayRecipeActivity extends AppCompatActivity {
         myImage = b.getInt("recipeImage");
 
 
+        TextView recipeTitle = (TextView) findViewById(R.id.recipe_title);
+
+        recipeTitle.setText(myName);
+
         setTitle(myName);
 
 
