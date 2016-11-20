@@ -9,14 +9,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="project.comp3717.hungryhelper.CatalogActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CATALOG SCREEN"
-        android:id="@+id/textView5"
+
+
+    <ListView
+        android:id="@+id/catalog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
