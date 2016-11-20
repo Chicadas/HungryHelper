@@ -37,7 +37,6 @@ public class DisplayRecipeActivity extends AppCompatActivity {
         myInstructions = b.getString("recipeInstructions");
         myImage = b.getInt("recipeImage");
 
-
         TextView recipeTitle = (TextView) findViewById(R.id.recipe_title);
 
         recipeTitle.setText(myName);
