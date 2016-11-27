@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -24,6 +25,8 @@ public class SearchActivity extends AppCompatActivity {
     TextView t3;
     TextView t4;
     Spinner carbs;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,27 @@ public class SearchActivity extends AppCompatActivity {
         init();
     }
     public void init(){
+        /*
+        Spinner proteinSpinner = (Spinner)findViewById(R.id.proteinSpinner);
+
+        Spinner vegetableSpinner = (Spinner)findViewById(R.id.vegetableSpinner);
+
+        Spinner carbSpinner = (Spinner)findViewById(R.id.carbSpinner);
+
+        ArrayAdapter cadapter = ArrayAdapter.createFromResource(this, R.array.carbChoices, R.layout.my_spinner_item);
+        cadapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        carbSpinner.setAdapter(cadapter);
+
+        ArrayAdapter vadapter = ArrayAdapter.createFromResource(this, R.array.vegetableChoices, R.layout.my_spinner_item);
+        vadapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        vegetableSpinner.setAdapter(vadapter);
+
+
+        ArrayAdapter padapter = ArrayAdapter.createFromResource(this, R.array.proteinChoices, R.layout.my_spinner_item);
+        padapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        proteinSpinner.setAdapter(padapter);
+
+        */
         searchBar = (EditText) findViewById(R.id.editText);
 
         search = (Button) findViewById(R.id.searchButton);
@@ -67,9 +91,15 @@ public class SearchActivity extends AppCompatActivity {
 
     public void searchMatches(View view){
         Intent intent = new Intent(this, MatchesActivity.class);
+
         final Spinner proteinSpinner = (Spinner)findViewById(R.id.proteinSpinner);
+
         final Spinner vegetableSpinner = (Spinner)findViewById(R.id.vegetableSpinner);
+
         final Spinner carbSpinner = (Spinner)findViewById(R.id.carbSpinner);
+
+
+
         String protein = String.valueOf(proteinSpinner.getSelectedItem());
         String vegetable = String.valueOf(vegetableSpinner.getSelectedItem());
         String carb = String.valueOf(carbSpinner.getSelectedItem());
