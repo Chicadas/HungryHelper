@@ -26,10 +26,12 @@ public class FavouritesActivity extends AppCompatActivity {
 
 
         try {
-            cursor = db.rawQuery("SELECT * FROM Recipes Favourites"  , null);
+            db = (new MyDBHandler(this, null, null, 1)).getWritableDatabase();
+            cursor = db.rawQuery("SELECT * FROM Favourites"  , null);
             adapter = new SimpleCursorAdapter(this, R.layout.custom_listview, cursor,
                     new String[] { "NAME", "IMAGE"}, new int[] {
                     R.id.recipeTitle, R.id.imageView});
+            lv = (ListView) findViewById(R.id.listView);
             lv.setAdapter(adapter);
             lv.setTextFilterEnabled(true);
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -18,12 +18,12 @@ import static android.graphics.Color.WHITE;
 public class SearchActivity extends AppCompatActivity {
     Button search;
     Button reset;
-    EditText searchBar;
+   // EditText searchBar;
     TextView t1;
     TextView t2;
     TextView t3;
-    TextView t4;
     Spinner carbs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +31,7 @@ public class SearchActivity extends AppCompatActivity {
         init();
     }
     public void init(){
-        searchBar = (EditText) findViewById(R.id.editText);
+        //searchBar = (EditText) findViewById(R.id.editText);
 
         search = (Button) findViewById(R.id.searchButton);
         search.setBackgroundColor(Color.argb(255,255,165,0));
@@ -52,18 +52,14 @@ public class SearchActivity extends AppCompatActivity {
         t3 = (TextView) findViewById(R.id.textView3);
         t3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
         t3.setTextColor(Color.argb(255,255,255,255));
-        t4 = (TextView) findViewById(R.id.textView4);
-        t4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
-        t4.setTextColor(Color.argb(255,255,255,255));
 
-        searchBar.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
-        t4.setTextColor(Color.argb(255,255,255,255));
+        //searchBar.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
 
     }
-
-    public void resetField(View V){
-        searchBar.setText("");
-    }
+//
+//    public void resetField(View V){
+//        searchBar.setText("");
+//    }
 
     public void searchMatches(View view){
         Intent intent = new Intent(this, MatchesActivity.class);

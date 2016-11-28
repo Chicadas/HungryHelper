@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -59,6 +60,10 @@ public class DisplayRecipeActivity extends AppCompatActivity {
         MyDBHandler db = (new MyDBHandler(this, null, null, 1));
         db.AddFavourite(myName, myInstructions, myIngredients, myImage);
         db.close();
+
+        Toast.makeText(DisplayRecipeActivity.this,
+                "Added to favourites ",
+                Toast.LENGTH_SHORT).show();
     }
 
 }

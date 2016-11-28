@@ -307,13 +307,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 R.drawable.tofuvindaloo +
                 ")");
 
-
-
-
-
-
-
-
         db.execSQL("INSERT INTO " + TABLE_RECIPES + "(NAME, INGREDIENTS, INSTRUCTIONS, IMAGE) VALUES " +
                 "('Coconut Fish Curry' ," +
                 "' 1 1/2 teaspoons curry powder \n 1/2 teaspoon ground ginger \n 1/4 teaspoon ground turmeric \n 1/4 teaspoon olive oil \n 3 cloves garlic, minced \n 1 onion, chopped \n  4 1/4 ounces coconut milk, divided \n 4 1/4 ounces water, divided \n 3 1/2 ounces cod, cut into bite-size pieces \n 1 large tomato, diced \n' ," +
@@ -328,12 +321,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 "'1.) Heat oil in a large soup pot over medium heat. Add celery, carrots, onion, green pepper, and garlic; saute about 8 minutes. \n\n 2.) Stir in tomato paste, and cook 1 minute. Add clam juice, potatoes, canned tomatoes with juice, Worcestershire sauce, jalapeno pepper, bay leaf, and ground black pepper. Simmer until potatoes are tender, stirring about every 30 minutes. \n\n 3.) Add fish. Simmer until snapper is easily flaked with fork, about 10 minutes.' ," +
                 R.drawable.fishchowder +
                 ")");
-
-
-
-
-
-
 
         db.execSQL("INSERT INTO " + TABLE_RECIPES + "(NAME, INGREDIENTS, INSTRUCTIONS, IMAGE) VALUES " +
                 "('Fancy Fish Italiano' ," +
@@ -403,8 +390,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 R.drawable.porkmedallions +
                 ")");
 
-
-
         db.execSQL("INSERT INTO " + TABLE_RECIPES + "(NAME, INGREDIENTS, INSTRUCTIONS, IMAGE) VALUES " +
                 "('Black Bean Pork Chops' ," +
                 "' 4 bone-in pork chops \n ground black pepper to taste \n 1 tablespoon olive oil \n 1 (15 ounce) can black beans, with liquid \n 1 cup salsa \n 1 tablespoon chopped fresh cilantro \n' ," +
@@ -444,8 +429,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 ")");
 
 
-
-
         db.execSQL("INSERT INTO " + TABLE_RECIPES + "(NAME, INGREDIENTS, INSTRUCTIONS, IMAGE) VALUES " +
                 "('BBQ Pork Sandwich' ," +
                 "' 1 (14 ounce) can beef broth \n 3 pounds boneless pork ribs \n 1 (18 ounce) bottle barbeque sauce \n ' ," +
@@ -453,15 +436,12 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 R.drawable.bbqporksandwich +
                 ")");
 
-
-
         db.execSQL("INSERT INTO " + TABLE_RECIPES + "(NAME, INGREDIENTS, INSTRUCTIONS, IMAGE) VALUES " +
                 "('Maple Pork Loin' ," +
                 "' 1 quart cold water \n 1/4 cup salt \n 1/3 cup maple syrup \n 3 cloves garlic, crushed \n 3 tablespoons chopped fresh ginger \n 2 teaspoons dried rosemary \n 1 tablespoon cracked black pepper \n 1/2 teaspoon red pepper flakes \n 1 (2 1/2 pound) boneless pork loin roast \n salt and freshly ground black pepper \n 1 tablespoon vegetable oil \n 2 tablespoons maple syrup \n 2 tablespoons Dijon mustard \n' ," +
                 "'1.) Mix water, salt, 1/3 cup maple syrup, garlic, ginger, rosemary, black pepper, and red pepper flakes in a large bowl. Place pork loin in brine mixture and refrigerate for 8 to 10 hours.\n\n 2.) Remove pork from brine, pat dry, and season all sides with salt and black pepper. \n\n 3.) Preheat oven to 325 degrees F (165 degrees C). \n\n 4.) Heat vegetable oil in an oven-proof skillet over high heat. Cook pork, turning to brown each side, about 10 minutes total. \n\n 5.) Transfer skillet to the oven and roast until pork is browned, about 40 minutes. \n\n 6.) Mix 2 tablespoons maple syrup and Dijon mustard together in a small bowl. \n\n 7.) Remove pork roast from the oven and spread maple syrup mixture on all sides. Cook for an additional 15 minutes, until the pork is no longer pink in the center. An instant-read thermometer inserted into the center should read 145 degrees F (63 degrees C).' ," +
                 R.drawable.mapleporkloin +
                 ")");
-
     }
 
     @Override
@@ -514,16 +494,29 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         // Select distinct
-        String sqlStatement = "INSERT INTO " + TABLE_FAVOURITES +
-                "( "+ COLUMN_RECIPE_NAME + ", " + COLUMN_RECIPE_INGREDIENTS + ", "+
-                COLUMN_RECIPE_INSTRUCTIONS + ", " + COLUMN_RECIPE_IMAGE + ")" + " VALUES ( "+
-                name + ", " + ingredients + ", " + instructions + ", " + image + ")";
+        String sqlStatement = "SELECT * FROM " + TABLE_FAVOURITES + " WHERE " + COLUMN_RECIPE_NAME + "=\'"
+                + name + "\'";
+        //String sqlStatement = "SELECT DISTINCT " + COLUMN_RECIPE_NAME + " FROM " + TABLE_RECIPES ;
+        Cursor c = db.rawQuery(sqlStatement, null);
 
-        db.execSQL(sqlStatement);
+        ArrayList<String> list = new ArrayList<String>();
+        c.moveToFirst();
+        while(c.isAfterLast() == false) {
+            list.add(c.getString(0));
+            c.moveToNext();
+        }
+
+        if(list.size() == 0) {
+            sqlStatement = "INSERT OR IGNORE INTO " + TABLE_FAVOURITES +
+                    "( " + COLUMN_RECIPE_NAME + ", " + COLUMN_RECIPE_INGREDIENTS + ", " +
+                    COLUMN_RECIPE_INSTRUCTIONS + ", " + COLUMN_RECIPE_IMAGE + ")" + " VALUES ( '" +
+                    name + "', '" + ingredients + "', '" + instructions + "', " + image + ")";
+
+            db.execSQL(sqlStatement);
+        }
+        c.close();
+        db.close();
     }
-
-
-
 
     /**
      *
@@ -545,6 +538,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.close();
         return list;
     }
+
     /**
      * Returns an ingredient list for a given recipe.
      * @param recipeName

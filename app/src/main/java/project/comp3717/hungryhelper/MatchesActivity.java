@@ -28,15 +28,13 @@ public class MatchesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matches);
 
-
-
-          Bundle b = this.getIntent().getExtras();
-          String[] words = b.getStringArray("key");
-          int  length = words.length;
-          String searchFor = "";
-          String protein = "";
-          String vegetable = "";
-          String carb = "";
+        Bundle b = this.getIntent().getExtras();
+        String[] words = b.getStringArray("key");
+        int  length = words.length;
+        String searchFor = "";
+        String protein = "";
+        String vegetable = "";
+        String carb = "";
 
         switch(length){
             case 1:
@@ -50,10 +48,6 @@ public class MatchesActivity extends AppCompatActivity {
                 break;
         }
 
-          for(int i = 0; i < words.length; i++){
-
-              Log.d("From spinner: ",words[i]);
-        }
         if(words.length != 0) {
             db = (new MyDBHandler(this, null, null, 1)).getWritableDatabase();
             lv = (ListView) findViewById(R.id.list);
