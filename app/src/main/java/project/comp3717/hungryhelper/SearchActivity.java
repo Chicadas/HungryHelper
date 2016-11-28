@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -31,12 +32,27 @@ public class SearchActivity extends AppCompatActivity {
         init();
     }
     public void init(){
-        //searchBar = (EditText) findViewById(R.id.editText);
+        /*
+        Spinner proteinSpinner = (Spinner)findViewById(R.id.proteinSpinner);
 
-        search = (Button) findViewById(R.id.searchButton);
-        search.setBackgroundColor(Color.argb(255,255,165,0));
-        search.setTextColor(WHITE);
-        search.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+        Spinner vegetableSpinner = (Spinner)findViewById(R.id.vegetableSpinner);
+
+        Spinner carbSpinner = (Spinner)findViewById(R.id.carbSpinner);
+
+        ArrayAdapter cadapter = ArrayAdapter.createFromResource(this, R.array.carbChoices, R.layout.my_spinner_item);
+        cadapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        carbSpinner.setAdapter(cadapter);
+
+        ArrayAdapter vadapter = ArrayAdapter.createFromResource(this, R.array.vegetableChoices, R.layout.my_spinner_item);
+        vadapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        vegetableSpinner.setAdapter(vadapter);
+
+
+        ArrayAdapter padapter = ArrayAdapter.createFromResource(this, R.array.proteinChoices, R.layout.my_spinner_item);
+        padapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        proteinSpinner.setAdapter(padapter);
+
+        */
 
         reset = (Button) findViewById(R.id.resetButton);
         reset.setBackgroundColor(Color.argb(255,255,165,0));
@@ -52,20 +68,19 @@ public class SearchActivity extends AppCompatActivity {
         t3 = (TextView) findViewById(R.id.textView3);
         t3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
         t3.setTextColor(Color.argb(255,255,255,255));
-
-        //searchBar.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
-
     }
-//
-//    public void resetField(View V){
-//        searchBar.setText("");
-//    }
 
     public void searchMatches(View view){
         Intent intent = new Intent(this, MatchesActivity.class);
+
         final Spinner proteinSpinner = (Spinner)findViewById(R.id.proteinSpinner);
+
         final Spinner vegetableSpinner = (Spinner)findViewById(R.id.vegetableSpinner);
+
         final Spinner carbSpinner = (Spinner)findViewById(R.id.carbSpinner);
+
+
+
         String protein = String.valueOf(proteinSpinner.getSelectedItem());
         String vegetable = String.valueOf(vegetableSpinner.getSelectedItem());
         String carb = String.valueOf(carbSpinner.getSelectedItem());
