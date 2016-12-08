@@ -19,6 +19,9 @@
         <activity android:name=".FavouritesActivity" />
         <activity android:name=".MatchesActivity" />
         <activity android:name=".SearchActivity" />
-        <activity android:name=".CatalogActivity"></activity>
+        <activity android:name=".CatalogActivity" />
+        <activity android:name=".DisplayFavouriteActivity" />
+        <activity android:name=".DispayFavouriteActivity"></activity>
     </application>
+
 </manifest>

@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,6 +58,8 @@ public class DisplayRecipeActivity extends AppCompatActivity {
     }
 
     public void favourite(View view){
+        ImageButton btn = (ImageButton)findViewById(R.id.imageButton);
+        btn.setImageResource(R.drawable.heartbutton4);
         MyDBHandler db = (new MyDBHandler(this, null, null, 1));
         db.AddFavourite(myName, myInstructions, myIngredients, myImage);
         db.close();

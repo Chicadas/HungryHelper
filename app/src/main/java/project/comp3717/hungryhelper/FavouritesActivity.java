@@ -69,7 +69,7 @@ public class FavouritesActivity extends AppCompatActivity {
             instructions = cursor.getString(cursor.getColumnIndex("INSTRUCTIONS"));
         }
 
-        Intent iIntent = new Intent(this, DisplayRecipeActivity.class);
+        Intent iIntent = new Intent(this, DispayFavouriteActivity.class);
         iIntent.putExtra("recipeImage", image);
         iIntent.putExtra("recipeName", name);
         iIntent.putExtra("recipeIngredients", ingredients);
@@ -85,7 +85,7 @@ public class FavouritesActivity extends AppCompatActivity {
         //int itemPosition     = position;
         final String  itemValue    = (String) l.getItemAtPosition(position);
         Log.d("im clicking on ", itemValue);
-        Intent intent = new Intent(this, DisplayRecipeActivity.class);
+        Intent intent = new Intent(this, DispayFavouriteActivity.class);
         //intent.putExtra("courses",itemValue);
         startActivity(intent);
     }
