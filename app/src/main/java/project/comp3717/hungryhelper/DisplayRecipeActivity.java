@@ -1,21 +1,12 @@
 package project.comp3717.hungryhelper;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 
 public class DisplayRecipeActivity extends AppCompatActivity {
 
@@ -40,11 +31,8 @@ public class DisplayRecipeActivity extends AppCompatActivity {
         myImage = b.getInt("recipeImage");
 
         TextView recipeTitle = (TextView) findViewById(R.id.recipe_title);
-
         recipeTitle.setText(myName);
-
         setTitle(myName);
-
 
         TextView ingredientText = (TextView)findViewById(R.id.ingredients);
         ingredientText.setText(myIngredients);

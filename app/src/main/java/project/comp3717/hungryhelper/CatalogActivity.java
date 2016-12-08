@@ -19,7 +19,6 @@ public class CatalogActivity extends AppCompatActivity {
     SQLiteDatabase db;
     Cursor cursor;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,15 +66,5 @@ public class CatalogActivity extends AppCompatActivity {
         iIntent.putExtra("recipeInstructions", instructions);
         setResult(RESULT_OK, iIntent);
         startActivityForResult(iIntent, 99);
-    }
-    protected void onListItemClick(ListView l, final View v, int position, long id) {
-
-        onListItemClick(l, v, position, id);
-        //int itemPosition     = position;
-        final String  itemValue    = (String) l.getItemAtPosition(position);
-        Log.d("im clicking on ", itemValue);
-        Intent intent = new Intent(this, DisplayRecipeActivity.class);
-        //intent.putExtra("courses",itemValue);
-        startActivity(intent);
     }
 }

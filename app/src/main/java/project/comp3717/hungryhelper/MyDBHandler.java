@@ -4,20 +4,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by shanejackson on 2016-11-06.
  */
 public class MyDBHandler extends SQLiteOpenHelper {
-    // DatabseUtils.dumbCurstontoString(curstor
-    // int numb = cursor.getCount
-    // get column names
-    // google cusrsor get column names
+
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "Hungry.db";
     private static final String TABLE_RECIPES = "Recipes";
@@ -29,16 +23,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_RECIPE_INSTRUCTIONS = "INSTRUCTIONS";
     public static final String COLUMN_RECIPE_IMAGE = "IMAGE";
 
-
-
-
-
-
     public MyDBHandler(Context context, String name,
                        SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -451,52 +439,12 @@ public class MyDBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    /*
-    db.execSQL("INSERT INTO " + TABLE_RECIPES + "(NAME, INGREDIENTS, INSTRUCTIONS, IMAGE) VALUES " +
-                                                                                                        "('' ," +
-                                                                                                        "'' ," +
-                                                                                                        "'' ," +
-                                                                                                        R.drawable +
-                                                                                                        ")");
-    public ArrayList<String> getAllRecipes(){
-        SQLiteDatabase db = this.getWritableDatabase();
-        String sqlStatement = "SELECT * FROM " + TABLE_RECIPES;
-        Cursor c = db.rawQuery(sqlStatement, null);
-
-        ArrayList<String> list = new ArrayList<String>();
-        HashMap<String, Integer> map = new HashMap<>();
-        c.moveToFirst();
-        while(c.isAfterLast() == false) {
-            map.put();
-            list.add(c.getString(2));
-            Log.d("TRYING TO CREATE", c.getString(2));
-            c.moveToNext();
-        }
-        c.close();
-        db.close();
-        return list;
-    }*/
-    /**
-    public void AddFavourite(String recipe[]){
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        // Select distinct
-        String sqlStatement = "INSERT INTO " + TABLE_FAVOURITES +
-                "( "+ COLUMN_RECIPE_NAME + ", " + COLUMN_RECIPE_INGREDIENTS + ", "+
-                COLUMN_RECIPE_INSTRUCTIONS + ", " + COLUMN_RECIPE_IMAGE + ")" + " VALUES ( "+
-                recipe[0] + ", " + recipe[1] + ", " + recipe[2] + ", " + recipe[3] + ")";
-
-        db.execSQL(sqlStatement);
-    }
-     */
-
     public void AddFavourite(String name, String ingredients, String instructions, int image){
 
         SQLiteDatabase db = this.getWritableDatabase();
         // Select distinct
         String sqlStatement = "SELECT * FROM " + TABLE_FAVOURITES + " WHERE " + COLUMN_RECIPE_NAME + "=\'"
                 + name + "\'";
-        //String sqlStatement = "SELECT DISTINCT " + COLUMN_RECIPE_NAME + " FROM " + TABLE_RECIPES ;
         Cursor c = db.rawQuery(sqlStatement, null);
 
         ArrayList<String> list = new ArrayList<String>();
@@ -517,99 +465,4 @@ public class MyDBHandler extends SQLiteOpenHelper {
         c.close();
         db.close();
     }
-
-    /**
-     *
-     * @return a recipe name
-     */
-    public ArrayList<String> getName(){
-        SQLiteDatabase db = this.getWritableDatabase();
-        // Select distinct
-        String sqlStatement = "SELECT DISTINCT " + COLUMN_RECIPE_NAME + " FROM " + TABLE_RECIPES ;
-        Cursor c = db.rawQuery(sqlStatement, null);
-
-        ArrayList<String> list = new ArrayList<String>();
-        c.moveToFirst();
-        while(c.isAfterLast() == false) {
-            list.add(c.getString(0));
-            c.moveToNext();
-        }
-        c.close();
-        db.close();
-        return list;
-    }
-
-    /**
-     * Returns an ingredient list for a given recipe.
-     * @param recipeName
-     * @return An arrarylist of  ingredients
-     */
-    public ArrayList<String> displayIngredients(String recipeName){
-        SQLiteDatabase db = this.getWritableDatabase();
-        String sqlStatement = "SELECT * FROM " + TABLE_RECIPES + " WHERE " + COLUMN_RECIPE_NAME + "=\'"
-                + recipeName + "\'";
-        Cursor c = db.rawQuery(sqlStatement, null);
-
-        ArrayList<String> list = new ArrayList<String>();
-        c.moveToFirst();
-        while(c.isAfterLast() == false) {
-            list.add(c.getString(2));
-            Log.d("TRYING TO CREATE", c.getString(2));
-            c.moveToNext();
-        }
-        c.close();
-        db.close();
-        return list;
-    }
-
-    /**
-     * Returns an instruction set for a given recipe.
-     * @param recipeName
-     * @return An arrarylist of instructions
-     */
-    public ArrayList<String> displayInstructions(String recipeName){
-        SQLiteDatabase db = this.getWritableDatabase();
-        String sqlStatement = "SELECT * FROM " + TABLE_RECIPES + " WHERE " + COLUMN_RECIPE_NAME + "=\'"
-                + recipeName + "\'";
-        Cursor c = db.rawQuery(sqlStatement, null);
-
-        ArrayList<String> list = new ArrayList<String>();
-        c.moveToFirst();
-        while(c.isAfterLast() == false) {
-            list.add(c.getString(3));
-            Log.d("TRYING TO CREATE", c.getString(2));
-            c.moveToNext();
-        }
-        c.close();
-        db.close();
-        return list;
-    }
-    /**
-     * Returns an image for a given recipe.
-     * @param recipeName
-     * @return An arrarylist of images
-     */
-    public ArrayList<Integer> displayImage(String recipeName) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String sqlStatement = "SELECT * FROM " + TABLE_RECIPES + " WHERE " + COLUMN_RECIPE_NAME + "=\'"
-                + recipeName + "\'";
-
-        Cursor c = db.rawQuery(sqlStatement, null);
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        c.moveToFirst();
-
-        String names[] = c.getColumnNames();
-        for(String s: names){
-            Log.d("column names ", s);
-        }
-        while(c.isAfterLast() == false) {
-            Log.d("TRYING TO CREATE", c.getString(4));
-            list.add(c.getInt(4));
-            c.moveToNext();
-        }
-        c.close();
-        db.close();
-        return list;
-    }
-
 }

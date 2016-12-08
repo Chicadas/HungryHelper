@@ -8,7 +8,6 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -18,12 +17,9 @@ import static android.graphics.Color.WHITE;
 
 public class SearchActivity extends AppCompatActivity {
     Button search;
-    Button reset;
-   // EditText searchBar;
     TextView t1;
     TextView t2;
     TextView t3;
-    Spinner carbs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,54 +28,44 @@ public class SearchActivity extends AppCompatActivity {
         init();
     }
     public void init(){
-        /*
+
         Spinner proteinSpinner = (Spinner)findViewById(R.id.proteinSpinner);
-
         Spinner vegetableSpinner = (Spinner)findViewById(R.id.vegetableSpinner);
-
         Spinner carbSpinner = (Spinner)findViewById(R.id.carbSpinner);
 
-        ArrayAdapter cadapter = ArrayAdapter.createFromResource(this, R.array.carbChoices, R.layout.my_spinner_item);
-        cadapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        carbSpinner.setAdapter(cadapter);
+        ArrayAdapter carbadapter = ArrayAdapter.createFromResource(
+                this, R.array.carbChoices, R.layout.spinnerlayout);
+        carbSpinner.setAdapter(carbadapter);
 
-        ArrayAdapter vadapter = ArrayAdapter.createFromResource(this, R.array.vegetableChoices, R.layout.my_spinner_item);
-        vadapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        vegetableSpinner.setAdapter(vadapter);
+        ArrayAdapter proteinadapter = ArrayAdapter.createFromResource(
+                this, R.array.proteinChoices, R.layout.spinnerlayout);
+        proteinSpinner.setAdapter(proteinadapter);
 
+        ArrayAdapter veggiesadapter = ArrayAdapter.createFromResource(
+                this, R.array.vegetableChoices, R.layout.spinnerlayout);
+        vegetableSpinner.setAdapter(veggiesadapter);
 
-        ArrayAdapter padapter = ArrayAdapter.createFromResource(this, R.array.proteinChoices, R.layout.my_spinner_item);
-        padapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        proteinSpinner.setAdapter(padapter);
-
-        */
-
-        reset = (Button) findViewById(R.id.resetButton);
-        reset.setBackgroundColor(Color.argb(255,255,165,0));
-        reset.setTextColor(WHITE);
-        reset.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+        search = (Button) findViewById(R.id.searchButton);
+        search.setBackgroundColor(Color.argb(255,255,165,0));
+        search.setTextColor(WHITE);
+        search.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
 
         t1 = (TextView) findViewById(R.id.textView);
-        t1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+        t1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 23);
         t1.setTextColor(Color.argb(255,255,255,255));
         t2 = (TextView) findViewById(R.id.textView2);
-        t2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+        t2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 23);
         t2.setTextColor(Color.argb(255,255,255,255));
         t3 = (TextView) findViewById(R.id.textView3);
-        t3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+        t3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 23);
         t3.setTextColor(Color.argb(255,255,255,255));
     }
 
     public void searchMatches(View view){
         Intent intent = new Intent(this, MatchesActivity.class);
-
         final Spinner proteinSpinner = (Spinner)findViewById(R.id.proteinSpinner);
-
         final Spinner vegetableSpinner = (Spinner)findViewById(R.id.vegetableSpinner);
-
         final Spinner carbSpinner = (Spinner)findViewById(R.id.carbSpinner);
-
-
 
         String protein = String.valueOf(proteinSpinner.getSelectedItem());
         String vegetable = String.valueOf(vegetableSpinner.getSelectedItem());
@@ -105,6 +91,5 @@ public class SearchActivity extends AppCompatActivity {
         b.putStringArray("key", newInputs);
         intent.putExtras(b);
         startActivity(intent);
-
     }
 }

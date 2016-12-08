@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,110 +8,107 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/gray"
+    android:gravity="fill_horizontal"
     tools:context="project.comp3717.hungryhelper.SearchActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose vegetable:"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/proteinSpinner"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Choose main protein source:"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"/>
+        android:layout_marginTop="53dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:paddingLeft="4.0dip"
-        android:paddingTop="5.0dip"
-        android:paddingRight="4.0dip"
-        android:paddingBottom="1.0dip"
-        android:layout_width="fill_parent" android:layout_height="wrap_content"
-        android:weightSum="2.5"
-        android:layout_below="@+id/carbSpinner">
-
-        <Button
-            android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:id="@+id/relativeLayout1"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="106dp">
+        <Spinner
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Search"
-            android:layout_weight="1"
-            android:id="@+id/searchButton"
-            android:layout_marginTop="30dp"
-            android:layout_alignTop="@+id/resetButton"
-            android:layout_toRightOf="@+id/carbSpinner"
-            android:layout_toEndOf="@+id/carbSpinner"
-            android:onClick="searchMatches"/>
+            android:id="@+id/proteinSpinner"
+            android:spinnerMode="dropdown"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.46" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Reset"
-            android:id="@+id/resetButton"
-            android:layout_marginTop="30dp"
-            android:layout_below="@+id/editText"
-            android:layout_toRightOf="@+id/searchButton"
-            android:layout_toEndOf="@+id/searchButton"
-            android:onClick="resetField"/>
-    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose main source of carbs:"
-        android:id="@+id/textView3"
-        android:layout_marginTop="42dp"
-        android:layout_below="@+id/vegetableSpinner"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Choose vegetable:"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/relativeLayout1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <Spinner
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/carbChoices"
-        android:id="@+id/carbSpinner"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:entries="@array/vegetableChoices"
-        android:id="@+id/vegetableSpinner"
-        android:layout_marginTop="34dp"
-        android:gravity="center"
+        android:background="@color/white"
+        android:id="@+id/relativeLayout2"
         android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/vegetableSpinner"
+            android:spinnerMode="dropdown"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
 
-    <Spinner
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/proteinChoices"
-        android:id="@+id/proteinSpinner"
-        android:gravity="center"
-        android:layout_marginTop="33dp"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:background="@color/white"
+        android:id="@+id/relativeLayout3"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="106dp">
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/carbSpinner"
+            android:spinnerMode="dropdown"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose main protein source:"
-        android:id="@+id/textView"
-        android:layout_marginTop="30dp"
-        android:layout_alignParentTop="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Choose main source of carbs:"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/relativeLayout3"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/searchButton"
+        android:layout_width="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="searchMatches"/>
+
 </RelativeLayout>
-</ScrollView>

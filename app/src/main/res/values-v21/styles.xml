@@ -7,4 +7,7 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="colorAccent">@android:color/background_light</item>
     </style>
+    <style name="spinnerStyle"  parent="@android:style/Widget.TextView.SpinnerItem">
+        <item name="android:padding">5sp</item>
+    </style>
 </resources>

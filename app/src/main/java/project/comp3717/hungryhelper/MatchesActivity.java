@@ -1,6 +1,5 @@
 package project.comp3717.hungryhelper;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,19 +8,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MatchesActivity extends AppCompatActivity {
+
     protected ListView lv;
     protected ListAdapter adapter;
     SQLiteDatabase db;
     Cursor cursor;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,19 +70,11 @@ public class MatchesActivity extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            styleList();
-
         } else {
             String fail = " You failed to enter any delicious ingredients ";
             Toast.makeText(this, fail, Toast.LENGTH_LONG).show();
 
         }
-
-
-    }
-    public void styleList(){
-       // lv.setTextColor(Color.argb(255,255,165,0));
-        //lv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
     }
 
     public void detail(int position) {
@@ -109,17 +98,5 @@ public class MatchesActivity extends AppCompatActivity {
            iIntent.putExtra("recipeInstructions", instructions);
            setResult(RESULT_OK, iIntent);
         startActivityForResult(iIntent, 99);
-    }
-
-
-    protected void onListItemClick(ListView l, final View v, int position, long id) {
-
-        onListItemClick(l, v, position, id);
-        //int itemPosition     = position;
-        final String  itemValue    = (String) l.getItemAtPosition(position);
-        Log.d("im clicking on ", itemValue);
-        Intent intent = new Intent(this, DisplayRecipeActivity.class);
-        //intent.putExtra("courses",itemValue);
-        startActivity(intent);
     }
 }
